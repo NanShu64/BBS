@@ -29,8 +29,8 @@ import java.io.IOException;
  * @date 2022/4/6 14:28
  */
 @Slf4j
-@RestController
-@RequestMapping("/bbs/label/")
+@RestController//返回的对象数据转换为JSON格式 @Controller通常与Thymeleaf模板引擎结合使用
+@RequestMapping("/bbs/label/")//http://localhost:8080/bbs/label @RequestMapping注解主要负责URL的路由映射。它可以添加在Controller类或者具体的方法上
 @Api(tags = "标签接口")
 public class LabelController {
     @Reference
@@ -49,7 +49,7 @@ public class LabelController {
 
     @PostMapping("/uploadLabelLogo")
     @ApiOperation(value = "上传标签logo")
-    @ApiVersion(group = ApiVersionConstant.V_300)
+    @ApiVersion(group = ApiVersionConstant.V_300)//@RequestParam用了这个注解则MultipartFile logo是必须的参数
     public ResponseResult<String> uploadLabelLogo(@RequestParam(value = "logo", required = false) MultipartFile logo) throws IOException {
         if (fileLengthUtils.isFileNotTooBig(logo.getBytes())) {
             return ResponseResult.success(labelService.uploadLabelLogo(logo.getBytes(), logo.getOriginalFilename()));
