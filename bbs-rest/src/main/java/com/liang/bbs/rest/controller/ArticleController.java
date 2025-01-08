@@ -19,9 +19,9 @@ import com.liang.nansheng.common.web.basic.ResponseResult;
 import com.liang.nansheng.common.web.exception.BusinessException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.dubbo.config.annotation.Reference;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,11 +35,11 @@ import java.util.stream.Collectors;
  * @author maliangnansheng
  * @date 2022/4/6 14:28
  */
-@Slf4j
 @RestController
 @RequestMapping("/bbs/article/")
 @Api(tags = "文章接口")
 public class ArticleController {
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(ArticleController.class);
     @Reference
     private ArticleService articleService;
 

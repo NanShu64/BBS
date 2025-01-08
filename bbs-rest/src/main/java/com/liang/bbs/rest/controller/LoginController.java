@@ -47,10 +47,11 @@ public class LoginController {
     private String domain;
 
     @NoNeedLogin
-    @PostMapping("register")
+    @PostMapping("register")//指定映射路径
     @ApiOperation(value = "用户注册")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<UserTokenDTO> register(@Valid @RequestBody UserDTO userDTO, HttpServletResponse response) {
+        //查询对象
         UserTokenDTO userTokenDTO = userService.register(userDTO);
         // 增加cookie
         addCookie(userTokenDTO.getToken(), response);
@@ -64,9 +65,11 @@ public class LoginController {
     @ApiOperation(value = "用户登录")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<UserTokenDTO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletResponse response) {
+        //根据用户查询用户
         UserTokenDTO userTokenDTO = userService.login(userLoginDTO);
         // 增加cookie
         addCookie(userTokenDTO.getToken(), response);
+        //
         return ResponseResult.success(userTokenDTO);
     }
 

@@ -43,10 +43,10 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-@Service
+@Service//当前类的对象注册到容器
 public class UserLevelServiceImpl implements UserLevelService {
     @Autowired
-    private UserLevelPoMapper userLevelPoMapper;
+    private UserLevelPoMapper userLevelPoMapper;//注册Mapper
 
     @Autowired
     private LikeService likeService;

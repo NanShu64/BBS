@@ -149,9 +149,10 @@ public class ArticleServiceImpl implements ArticleService {
             criteria.andCreateUserEqualTo(articleSearchDTO.getCreateUser());
         }
         example.setOrderByClause("top desc, create_time desc, `id` desc");
-
+        //开启分页查询PageHelper
         PageHelper.startPage(articleSearchDTO.getCurrentPage(), articleSearchDTO.getPageSize());
         List<ArticlePo> articlePos = articlePoMapper.selectByExample(example);
+        //
         PageInfo<ArticleDTO> pageInfo = ArticleMS.INSTANCE.toPage(new PageInfo<>(articlePos));
         if (CollectionUtils.isEmpty(pageInfo.getList())) {
             return pageInfo;
@@ -329,6 +330,7 @@ public class ArticleServiceImpl implements ArticleService {
         articleDTO.setCreateUser(currentUser.getUserId());
         articleDTO.setUpdateUser(currentUser.getUserId());
         LocalDateTime now = LocalDateTime.now();
+       //补充属性值
         articleDTO.setCreateTime(now);
         articleDTO.setUpdateTime(now);
         // 通过审核的文章才会启用（即：默认待审核）

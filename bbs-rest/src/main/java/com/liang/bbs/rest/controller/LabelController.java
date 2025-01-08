@@ -64,6 +64,7 @@ public class LabelController {
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> update(@RequestBody LabelDTO labelDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
+        // 调用service方法更新
         return ResponseResult.success(labelService.update(labelDTO, currentUser));
     }
 

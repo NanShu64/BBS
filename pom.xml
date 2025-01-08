@@ -251,6 +251,7 @@
                 <artifactId>validation-api</artifactId>
                 <version>${validation-api.version}</version>
             </dependency>
+<!--            java-jwt坐标-->
             <dependency>
                 <groupId>com.auth0</groupId>
                 <artifactId>java-jwt</artifactId>
@@ -286,7 +287,7 @@
                 <version>${thumbnailator.version}</version>
             </dependency>
 
-            <!-- 七牛云 -->
+            <!-- 七牛云 SDK-->
             <dependency>
                 <groupId>com.qiniu</groupId>
                 <artifactId>qiniu-java-sdk</artifactId>

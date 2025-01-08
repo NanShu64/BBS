@@ -101,6 +101,7 @@ public class LabelServiceImpl implements LabelService {
         labelDTO.setIsDeleted(false);
         labelDTO.setCreateUser(currentUser.getUserId());
         labelDTO.setUpdateUser(currentUser.getUserId());
+        //补充属性值
         LocalDateTime now = LocalDateTime.now();
         labelDTO.setCreateTime(now);
         labelDTO.setUpdateTime(now);
@@ -149,6 +150,7 @@ public class LabelServiceImpl implements LabelService {
         labelDTO.setCreateUser(null);
         labelDTO.setUpdateUser(currentUser.getUserId());
         labelDTO.setCreateTime(null);
+        //更新时间
         labelDTO.setUpdateTime(LocalDateTime.now());
         LabelPo labelPo = LabelMS.INSTANCE.toPo(labelDTO);
         if (labelPoMapper.updateByPrimaryKeySelective(labelPo) <= 0) {

@@ -46,6 +46,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private NotifyInterceptor notifyInterceptor;
 
+    //重写
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // 监控请求耗时等信息拦截器
@@ -53,7 +54,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns(NOT_LOGIN_URLS);
 
-        // 用户有效性验证拦截器
+        // 用户有效性验证拦截器,注册拦截器，登录接口和注册接口不拦截“/**”
         registry.addInterceptor(loginInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns(NOT_LOGIN_URLS);

@@ -39,7 +39,7 @@ import java.io.IOException;
  */
 @Slf4j
 @RestController
-@RequestMapping("/bbs/user/")
+@RequestMapping("/bbs/user/")//请求路径
 @Api(tags = "用户接口")
 public class UserController {
     @Reference
@@ -118,6 +118,7 @@ public class UserController {
     @ApiOperation(value = "获取用户信息")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<UserForumDTO> getUserInfo(@RequestParam Long userId) {
+        //根据id查询用户信息
         UserSsoDTO currentUser = UserContextUtils.currentUser();
         return ResponseResult.success(userLevelService.getUserInfo(userId, currentUser));
     }
@@ -148,6 +149,7 @@ public class UserController {
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> updateUserBasicInfo(@RequestBody UserDTO userDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
+        //
         return ResponseResult.success(userService.updateUserBasicInfo(userDTO, currentUser));
     }
 

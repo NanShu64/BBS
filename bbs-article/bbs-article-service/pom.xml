@@ -97,7 +97,7 @@
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <!-- mongodb需要-end -->
-        <!-- pagehelper分页 -->
+        <!-- pagehelper分页  pagehelper坐标-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
@@ -127,7 +127,7 @@
             <groupId>net.coobird</groupId>
             <artifactId>thumbnailator</artifactId>
         </dependency>
-        <!-- 七牛云 -->
+        <!-- 七牛云 SDK -->
         <dependency>
             <groupId>com.qiniu</groupId>
             <artifactId>qiniu-java-sdk</artifactId>

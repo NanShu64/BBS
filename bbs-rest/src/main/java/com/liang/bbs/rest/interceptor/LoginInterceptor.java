@@ -29,10 +29,12 @@ import java.util.Objects;
  */
 @Slf4j
 @Component
+//把我们当前拦截器对象注入到ioc容器
 public class LoginInterceptor implements HandlerInterceptor {
     @Reference
     private UserService userService;
 
+    //重写preHandle方法
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         UserSsoDTO currentUser = null;
@@ -71,6 +73,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             String redirect = userService.innerLoginUrl(referer);
             log.info("登录跳转[{}]", redirect);
             HttpRequestUtils.redirect(request, response, redirect);
+            //不放行
             return false;
         }
         return true;

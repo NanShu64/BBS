@@ -102,6 +102,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+<!--  新增标签-->
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.liang.bbs.article.persistence.entity.LabelPo" useGeneratedKeys="true">
     insert into fs_label (label_name, logo, is_deleted, 
       create_user, update_user, create_time, 
@@ -211,6 +212,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+<!--  根据id修改-->
   <update id="updateByPrimaryKeySelective" parameterType="com.liang.bbs.article.persistence.entity.LabelPo">
     update fs_label
     <set>

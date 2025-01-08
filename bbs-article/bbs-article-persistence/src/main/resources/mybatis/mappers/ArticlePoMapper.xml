@@ -77,6 +77,7 @@
     id, title_map, title, content, `state`, pv, `top`, is_deleted, create_user, update_user, 
     create_time, update_time
   </sql>
+<!-- 获取文章-->
   <select id="selectByExample" parameterType="com.liang.bbs.article.persistence.entity.ArticlePoExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -107,6 +108,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+<!--  新增文章-->
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.liang.bbs.article.persistence.entity.ArticlePo" useGeneratedKeys="true">
     insert into fs_article (title_map, title, content, 
       `state`, pv, `top`, is_deleted, 
